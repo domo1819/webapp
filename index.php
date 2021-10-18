@@ -67,12 +67,6 @@
 
 					echo "<table border=1><tr><th>ID</th><th>地方</th></tr>";
 
-					print "<tr>\n";
-					$flds = pg_num_fields($result);
-					for($i=0; $i<$flds; $i++){
-						$field = pg_field_name($result, $i);
-						printf("<th abbr=\"%s\">%s</th>\n", $field, $field);
-					}
 					print "</tr>\n";
 
 					//データの出力
