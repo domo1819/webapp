@@ -66,20 +66,15 @@
 					$arr = pg_fetch_all($result);
 
 					echo "<table border=1><tr><th>ID</th><th>地方</th></tr>";
-
-					echo "</tr>\n";
-
 					//データの出力
 					foreach($arr as $rows){
 						echo "<tr>\n";
 						foreach($rows as $value){
 							printf("<td>%s</td>\n", $value);
 						}
-						echo "</tr>\n";
 					}
-
 					echo "</table>\n";
-
+					
 					pg_close($conn);
 				?>
 			</div>
