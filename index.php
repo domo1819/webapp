@@ -62,8 +62,15 @@
 					pg_set_client_encoding("UTF-8");
 
 					$result = pg_query($conn, "select id,name from region_data");
+
+					//stringの配列情報
+					while ($row = pg_fetch_row($result)) {
+		   		$name_result = $row[0];
+					}
+					//string->array
+					$name_result = explode("," , substr($name_result, 1, strlen($name_result)-2));
 					
-					$arr = pg_fetch_all($result);
+					$arr = pg_fetch_all($name_result);
 
 					echo "<table border=1><tr><th>ID</th><th>地方</th></tr>";
 					//データの出力
@@ -74,7 +81,7 @@
 						}
 					}
 					echo "</table>\n";
-					
+
 					pg_close($conn);
 				?>
 			</div>
