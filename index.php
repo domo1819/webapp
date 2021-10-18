@@ -70,7 +70,7 @@
 					//string->array
 					$name_result = explode("," , substr($name_result, 1, strlen($name_result)-2));
 					
-					$arr = pg_fetch_all($name_result);
+					$arr = pg_fetch_all($result);
 
 					echo "<table border=1><tr><th>ID</th><th>地方</th></tr>";
 					//データの出力
