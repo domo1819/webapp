@@ -61,23 +61,32 @@
 					}
 					pg_set_client_encoding("UTF-8");
 
-					$car_number_query = pg_query($conn, "select id,name from region_data");
-					//stringの配列情報
-					while ($row = pg_fetch_row($car_number_query)) {
-		   		$car_number_query_result = $row[0];
+					$result = pg_query($conn, "select id,name from region_data");
+					
+					$arr = pg_fetch_all($result);
+
+					echo "<table border=1><tr><th>ID</th><th>地方</th></tr>";
+
+					print "<tr>\n";
+					$flds = pg_num_fields($result);
+					for($i=0; $i<$flds; $i++){
+						$field = pg_field_name($result, $i);
+						printf("<th abbr=\"%s\">%s</th>\n", $field, $field);
 					}
-					//string->array
-					$car_number_query_result = explode("," , substr($car_number_query_result, 1, strlen($car_number_query_result)-2));
+					print "</tr>\n";
+
+					//データの出力
+					foreach($arr as $rows){
+						print "<tr>\n";
+						foreach($rows as $value){
+							printf("<td>%s</td>\n", $value);
+						}
+						print "</tr>\n";
+					}
+
+					print "</table>\n";
 
 					pg_close($conn);
-				?>
-				<?php
-					echo "<table border=1><tr><th>ID</th><th>地方</th></tr>";
-						foreach($car_number_query_result as $key => $value){
-								echo "<td>". $key ."</td>";
-								echo "<td>". $value ."</td>";
-						}
-					echo "</table>";
 				?>
 			</div>
 			<div class = "pp3">
