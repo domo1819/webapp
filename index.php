@@ -67,18 +67,18 @@
 
 					echo "<table border=1><tr><th>ID</th><th>地方</th></tr>";
 
-					print "</tr>\n";
+					echo "</tr>\n";
 
 					//データの出力
 					foreach($arr as $rows){
-						print "<tr>\n";
+						echo "<tr>\n";
 						foreach($rows as $value){
-							printf("<td>%s</td>\n", $value);
+							echo("<td>%s</td>\n", $value);
 						}
-						print "</tr>\n";
+						echo "</tr>\n";
 					}
 
-					print "</table>\n";
+					echo "</table>\n";
 
 					pg_close($conn);
 				?>
