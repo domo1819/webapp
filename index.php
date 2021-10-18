@@ -61,7 +61,7 @@
 					}
 					pg_set_client_encoding("UTF-8");
 
-					$car_number_query = pg_query($conn, "select id,region_name from region_data");
+					$car_number_query = pg_query($conn, "select id,name from region_data");
 					//stringの配列情報
 					while ($row = pg_fetch_row($car_number_query)) {
 		   		$car_number_query_result = $row[0];
