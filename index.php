@@ -77,7 +77,7 @@
 					foreach($arr as $rows){
 						echo "<tr>\n";
 						foreach($rows as $value){
-							printf("<td>%s</td>\n", $value);
+							printf( $value);
 						}
 					}
 					echo "</table>\n";
