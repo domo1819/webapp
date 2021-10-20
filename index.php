@@ -72,12 +72,14 @@
 					
 					$arr = pg_fetch_all($result);
 
-					echo "<table border=1><tr><th>ID</th><th>ナンバー</th><th>日時</th><th>違反</th><th>放置種別</th><th>罰金</th></tr>";
+					echo "<table border=1><tr><th>ID</th><th>ナンバー</th><th>地方</th><th>日時</th><th>違反</th><th>放置種別</th><th>罰金</th></tr>";
 					//データの出力
 					foreach($arr as $rows){
 						echo "<tr>\n";
 						foreach($rows as $value){
-							print("<td>" .$value. "</td>\n");
+							print("<td>" .$value['id']. "</td>\n");
+							print("<td>" .$value['']. "</td>\n");
+							print("<td>" .$value['name']. "</td>\n");
 						}
 					}
 					echo "</table>\n";
