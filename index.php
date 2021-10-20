@@ -77,8 +77,7 @@
 					foreach($arr as $rows){
 						echo "<tr>\n";
 						foreach($rows as $value){
-							print("<td>" .$value['id']. "</td>\n");
-							print("<td>" .$value['']. "</td>\n");
+							echo("<td>" .$value['id']. "</td>\n");
 							print("<td>" .$value['name']. "</td>\n");
 						}
 					}
